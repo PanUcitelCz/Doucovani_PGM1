@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="vypis()">
+    <div class="container">
+        <div class="items">
+            <button onclick="pridat()">Přidej</button>
+            <button onclick="pridej_vse()">Přidej všechny</button>
+            <h3>Nabídka písmen</h3>
+            <p id="zbozi"></p>            
+        </div>
+        <div class="items">
+            <button onclick="odebrat()">Odeber</button>
+            <button onclick="odebrat_vse()">Odeber všechny</button>
+            <h3>Zakoupená písmena</h3>
+            <input type="text" disabled value="Celková částka: " id="input">
+            <p id="uctenka"></p>
+        </div>
+    </div>
+</body>
+</html>
