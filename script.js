@@ -34,34 +34,42 @@ function vypis(){
 
 }
 
+function toNormalForm(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
 function pridat(){
     let y = true;
-    if(zbozi.length ==0){
+    if(zbozi.length == 0){
         alert("Hele kámo, všechno si už vybral");
         y = false;
     }
 
     while(y==true){
-        let promt = prompt("Jakou chcete výbavu?");
+        let prompt1 = prompt("Jakou chcete výbavu?");
         
-        if(prompt == null){
+        if(prompt1 == null){
             y = false;
         }
-        else if(promt == "")
+        else if(prompt1 == "")
         {
             alert("Nic si přece nenapsal");
         }
-        else if(zbozi.length ==0){
+        else if(zbozi.length == 0){
             alert("Hele kámo, všechno si už vybral");
             y = false;
         }
         else{
 
             for(let i = 0; i<zbozi.length;i++){
-                let x = promt.toUpperCase();
+                let x = prompt1.toUpperCase();
                 let y = zbozi[i].nazev.toUpperCase();
-                console.log(i);
-                console.log(zbozi.length + "zbozi");
+
+                x = toNormalForm(x);
+                y = toNormalForm(y);
+
+                console.log(x, y);
+
                 if(x==y)
                 {
                     koupene_zbozi.push(zbozi[i]);
@@ -89,7 +97,7 @@ function odebrat(){
     while(y==true){
         let promt = prompt("Jakou chcete výbavu?");
         
-        if(prompt == null){
+        if(promt == null){
             y = false;
         }
         else if(promt == "")
@@ -103,10 +111,16 @@ function odebrat(){
         else{
 
             for(let i = 0; i<koupene_zbozi.length;i++){
-                let x = promt.toUpperCase();
-                let y = koupene_zbozi[i].nazev.toUpperCase();
-                console.log(i);
-                console.log(koupene_zbozi.length + "zbozi");
+                let x = promt.toLowerCase();
+                let y = koupene_zbozi[i].nazev.toLowerCase();
+
+                console.log();
+
+                x = toNormalForm(x);
+                y = toNormalForm(y);
+
+                console.log(x, y);
+
                 if(x==y)
                 {
                     zbozi.push(koupene_zbozi[i]);
